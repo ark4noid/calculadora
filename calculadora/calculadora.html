@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./calculadora.css">
     <script src="./calculadora.js"></script>
-    <title>Document</title>
+    <title>CALCULATRON</title>
 </head>
 
 <body>
@@ -19,28 +19,38 @@
 
         <table class="table table-sm table-hover" id="tabla">
             <thead>
-                <tr>
-                    <th colspan="3" class="w-100"><input type="number" id="display" class="btn btn-secondary" value=""></th>
-                    <th colspan="1" class="w-25"><input type="text" id="displayOP" class="btn btn-secondary" value=""></th>
+                <tr id="filaDisplay">
+                    <th colspan="3"><input type="number" id="display"
+                            class="btn btn-secondary" value=""></th>
+                    <th align="center" class="w-25"><input type="text" id="displayOP"
+                            class="btn btn-secondary" value=""></th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr id="filasuma">
-                    <td align="center"><button id="b7" numero="7" class="btn btn-primary" onclick="pulsaNumero(this)">7</button></td>
-                    <td align="center"><button id="b8" numero="8" class="btn btn-primary" onclick="pulsaNumero(this)">8</button></td>
-                    <td align="center"><button id="b9" numero="9" class="btn btn-primary" onclick="pulsaNumero(this)">9</button></td>
-                    <td align="center"><button id="bSumar" signo="suma" class="btn btn-danger" onclick="Operacion(this)">+</button></td>
+                <tr id="filaTeclado1">
+                    <td align="center"><button id="b7" numero="7" class="btn btn-primary"
+                            onclick="pulsaNumero(this)">7</button></td>
+                    <td align="center"><button id="b8" numero="8" class="btn btn-primary"
+                            onclick="pulsaNumero(this)">8</button></td>
+                    <td align="center"><button id="b9" numero="9" class="btn btn-primary"
+                            onclick="pulsaNumero(this)">9</button></td>
+                    <td align="center"><button id="bSumar" tipo="1" class="btn btn-danger"
+                            onclick="operacion(this)">+</button></td>
                 </tr>
 
-                <tr id="filaresta">
-                    <td align="center"><button id="b4" numero="4" class="btn btn-primary" onclick="pulsaNumero(this)">4</button></td>
-                    <td align="center"><button id="b5" numero="5" class="btn btn-primary" onclick="pulsaNumero(this)">5</button></td>
-                    <td align="center"><button id="b6" numero="6" class="btn btn-primary" onclick="pulsaNumero(this)">6</button></td>
-                    <td align="center"><button id="bRestar" signo="resta" class="btn btn-danger" onclick="Operacion(this)">-</button></td>
+                <tr id="filaTeclado2">
+                    <td align="center"><button id="b4" numero="4" class="btn btn-primary"
+                            onclick="pulsaNumero(this)">4</button></td>
+                    <td align="center"><button id="b5" numero="5" class="btn btn-primary"
+                            onclick="pulsaNumero(this)">5</button></td>
+                    <td align="center"><button id="b6" numero="6" class="btn btn-primary"
+                            onclick="pulsaNumero(this)">6</button></td>
+                    <td align="center"><button id="bRestar" tipo="2" class="btn btn-danger"
+                            onclick="operacion(this)">-</button></td>
                 </tr>
-                
-                <tr id="filamultiplicacion">
+
+                <tr id="filaTeclado3">
                     <td align="center">
                         <button id="b1" numero="1" class="btn btn-primary" onclick="pulsaNumero(this)">1</button>
                     </td>
@@ -51,40 +61,41 @@
                         <button id="b3" numero="3" class="btn btn-primary" onclick="pulsaNumero(this)">3</button>
                     </td>
                     <td align="center">
-                        <button id="bMultiplicar" signo="multiplicacion" class="btn btn-danger"
-                            onclick="Operacion(this)">*</button>
+                        <button id="bMultiplicar" tipo="3" class="btn btn-danger" onclick="operacion(this)">*</button>
                     </td>
                 </tr>
-                <tr id="filadivision">
+
+                <tr id="filaTeclado4">
                     <td align="center">
                         <button id="bCambiarSigno" signo="cambio" class="btn btn-warning"
-                            onclick="Operacion()">+/-</button>
+                            onclick="operacion(this)">+/-</button>
                     </td>
                     <td align="center">
                         <button id="b0" numero="0" class="btn btn-primary" onclick="pulsaNumero(this)">0</button>
                     </td>
                     <td align="center">
-                        <button id="bComa" signo="coma" class="btn btn-warning" onclick="Operacion()">,</button>
+                        <button id="bComa" signo="coma" class="btn btn-warning" onclick="operacion(this)">,</button>
                     </td>
                     <td align="center">
-                        <button id="bDividir" signo="division" class="btn btn-danger"
-                            onclick="Operacion(this)">/</button>
+                        <button id="bDividir" tipo="4" class="btn btn-danger" onclick="operacion(this)">/</button>
                     </td>
                 </tr>
-                <tr id="filaextra">
+
+                <tr id="filaTeclado5">
                     <td align="center">
                         <button id="bBorrarTodo" signo="borrarTodo" class="btn btn-warning"
-                            onclick="Operacion()">C</button>
+                            onclick="borrarTodo(this)">C</button>
                     </td>
                     <td align="center">
                         <button id="bBorrarUltimo" signo="borrarUltimo" class="btn btn-warning"
-                            onclick="Operacion()">B</button>
+                            onclick="operacion(this)">B</button>
                     </td>
                     <td align="center" colspan="2" id="igual" nombre>
-                        <button id="bResultado" signo="igual" class="btn btn-success" onclick="Operacion()">=</button>
+                        <button id="bResultado" tipo="5" class="btn btn-success" onclick="operacion(this)">=</button>
                     </td>
                 </tr>
             </tbody>
+
         </table>
 
         <h3 class="neonText text-center">(Puede dar resultados no precisos)</h3>
